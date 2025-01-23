@@ -1,0 +1,13 @@
+//
+//  main.swift
+//  SwiftDay01Ex01
+//
+//  Created by 윤태한 on 1/22/25.
+//
+
+import Foundation
+
+let name = "태한"
+let hello = "안녕 "
+print(hello)
+print(name)
