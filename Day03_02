@@ -1,0 +1,62 @@
+//
+//  main.swift
+//  SwiftDay03Ex02
+//
+//  Created by 윤태한 on 1/24/25.
+//
+
+import Foundation
+
+let monthDays: [Int] = [31,28,31,30,31,30,31,31,30,31,30,31]
+var month: Int = 0
+var days: Int = 0
+
+//print("날짜 수를 알고자 하는 달 입력: ", terminator: "")
+//month = Int(readLine() ?? "") ?? 0
+//days = monthDays[month - 1]
+//print("결과 \(month)월은 \(days)일까지 있다.")
+
+
+//var total: Int = 0
+//for num in monthDays {
+//    total += num
+//}
+//print("1년은 \(total)일 입니다.")
+
+
+//for (i, day) in monthDays.enumerated(){
+//    print("monthDay[\(i)] = \(day)")
+//}
+
+
+//total = 0
+//for i in 0..<monthDays.count {
+//    total += monthDays[i]
+//    print(i, i+1, monthDays[i], total)
+//}
+
+
+// ================ 문제 ==================
+print("월 입력: ")
+month = Int(readLine() ?? "0") ?? 0
+print("일 입력: ")
+days = Int(readLine() ?? "0") ?? 0
+
+// 문제1. 1월 1일 부터 입력받은 월,일까지의 몇 일인가 날짜 수 출력.
+//for m in 0..<month {
+//    days += monthDays[m]
+//}
+//print(days);
+
+// 문제2. 월, 일을 입력 받아서 100일 후의 해당 월,일 출력.
+//for m in 0..<month {
+//    days += monthDays[m]
+//}
+//days += 100
+//
+//var cnt = 0
+//while days > monthDays[cnt] {
+//    days = days - monthDays[cnt]
+//    cnt += 1
+//}
+//print("\(cnt+1)월 \(days)일")
