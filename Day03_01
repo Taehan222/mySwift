@@ -1,0 +1,81 @@
+//
+//  main.swift
+//  SwiftDay03Ex01
+//
+//  Created by 윤태한 on 1/24/25.
+//
+
+import Foundation
+
+// 높다 낮다 게임 구현
+// Step 01
+// 시스템이 1~100 사이의 난수를 발생.
+// 사용자가 정답을 입력해서 맞추는 프로그램.
+// 6회 시도 안에 맞추는 프로그램.
+// Step 02
+// 한 게임이 끝나면 재시도 여부 물어 보기
+// 재시도 하면 모든 변수가 초기화 되면서 다시 시작.
+
+
+
+//print("=========== 높다 낮다 게임 ===========")
+//while true {
+//    let min = 1
+//    let max = 100
+//    // 난수 발생
+//    let randomNumber = Int.random(in: min...max)
+//    var userNumber = 0
+//    var count = 0
+//    var yn = ""
+//    
+//    print("===========   게임 시작   ===========")
+//    print("시스템이 \(min)에서 \(max)사이의 번호를 하나 선택했습니다.(답: \(randomNumber))")
+//    print("6회 시도 안에 정답을 맞춰 보세요.")
+//    
+//    repeat {
+//        print("정답을 입력하세요 > ", terminator: "")
+//        userNumber = Int(readLine() ?? "0") ?? 0
+//        
+//        if userNumber == randomNumber {
+//            print("정답입니다.")
+//            break
+//        } else if userNumber < randomNumber {
+//            print("정답은 더 높습니다.")
+//        } else {
+//            print("정답은 더 낮습니다.")
+//        }
+//        count += 1
+//    }while count < 6
+//    
+//    if count == 6 {
+//        print("GAME OVER")
+//    }
+//    
+//    repeat{
+//        print("다시 하시겠습니까?(y/n) > ", terminator: "")
+//        yn = (readLine() ?? "").lowercased()
+//    }while yn != "y" && yn != "n"
+//    
+//    if yn == "n"{
+//        break;
+//    }
+//}  // End of While-loop
+//print("=========== 프로그램을 종료합니다 ===========")
+
+
+// 반복 실행하는 yn 변수 선언
+// 카운트를 세는 cnt 변수 선언
+// 사용자에게 입력 받은 값을 저장할 userInput 변수 선언
+// 컴퓨터에서 0~100까지의 난수 발생 후 randNum 변수에 저장
+
+// while true 반복문
+    // while 반복문 - cnt < 6일때
+        // 사용자에게 숫자를 입력 받음
+        // 조건문 (userInput == randNum) - 참이면 break, 거짓이면 큰지 작은지 판단 후 출력
+        // 증감식 cnt++
+    
+    // 조건문 (cnt < 6) - 참이면 성공, 거짓이면 실패
+        // 재시도 여부 물어봄
+        // 사용자에게 입력 받기(y,n)
+// 조건문 (yn == "n") - 참이면 break 후 프로그램 종료; 거짓이면 다시 반복
+
