@@ -1,0 +1,53 @@
+import Foundation
+
+
+// 사용자에게 월, 일을 입력받은 후 100일 후의 날짜 계산
+//var monthDays: [Int] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+//var DAYS = 100
+//
+//print("월입력 :", terminator: " ")
+//let month = Int(readLine() ?? "1") ?? 1
+//print("일입력 :", terminator: " ")
+//let day = Int(readLine() ?? "1") ?? 1
+//
+//print("\(month)월 \(day)일의 \(DAYS)일후는 ",terminator: "")
+//
+//var nextMonth = month
+//var sum = monthDays[month-1] - day
+//DAYS -= sum
+//
+//while DAYS >= monthDays[nextMonth % 12] {
+//    DAYS -= monthDays[nextMonth % 12]
+//    nextMonth += 1
+//}
+//nextMonth %= 12
+//print("\(nextMonth + 1)월 \(DAYS)일 입니다")
+
+
+
+
+
+// 사용자에게 월,일,일수(DAYS)를 입력받은 후 (DAYS)일 만큼 후의 날짜 계산
+var monthDays: [Int] = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+var DAYS = 100
+
+print("월입력 :", terminator: " ")
+let month = Int(readLine() ?? "1") ?? 1
+print("일입력 :", terminator: " ")
+let day = Int(readLine() ?? "1") ?? 1
+print("일수를 입력하세요 : ",terminator: "")
+DAYS = Int(readLine() ?? "1") ?? 1
+
+print("\(month)월 \(day)일의 \(DAYS)일후는 ",terminator: "")
+
+var nextMonth = month
+var sum = monthDays[month-1] - day
+DAYS -= sum
+
+while DAYS >= monthDays[nextMonth % 12] {
+    DAYS -= monthDays[nextMonth % 12]
+    nextMonth += 1
+}
+nextMonth %= 12
+print("\(nextMonth + 1)월 \(DAYS)일 입니다")
+
