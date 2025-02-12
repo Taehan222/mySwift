@@ -1,0 +1,32 @@
+//
+//  ContentView.swift
+//  SwiftUIDay03Ex02
+//
+//  Created by 윤태한 on 2/12/25.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    
+    @ViewBuilder
+    func createContentView(_ showTitle: Bool) -> some View{
+        if showTitle{
+            Text("나의 앱").font(.largeTitle).padding()
+        }
+        Image(systemName: "globe")
+            .imageScale(.large)
+            .foregroundStyle(.tint)
+        Text("Hello, world!")
+    }
+    
+    
+    var body: some View {
+        createContentView(true)
+    }
+    
+}
+
+#Preview {
+    ContentView()
+}
