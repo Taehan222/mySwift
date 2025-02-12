@@ -1,0 +1,113 @@
+//
+//  ContentView.swift
+//  SwiftUIDay03Ex01
+//
+//  Created by 윤태한 on 2/12/25.
+//
+
+import SwiftUI
+
+class CountClass {
+    var count = 0
+    init(_ count: Int = 0) {
+        
+    }
+}
+
+struct HomeView: View {
+    var countRef: CountClass = CountClass()
+    var body: some View {
+        VStack{
+            Image(systemName: "house.fill")
+                .resizable()
+                .frame(width: 100, height: 100)
+            Text("Welcome Home View")
+                .padding(10)
+            Button("증가"){
+                print("증가 버튼 누름",countRef.count)
+                countRef.count += 1
+            }
+        }
+    }
+}
+
+struct SettingView: View {
+    var body: some View {
+        VStack{
+            Image(systemName: "gear")
+                .resizable()
+                .frame(width: 100, height: 100)
+            Text("Setting")
+                .padding(10)
+        }
+    }
+}
+
+struct ProfileView: View {
+    var body: some View {
+        VStack{
+            Image(systemName: "person.circle")
+                .resizable()
+                .frame(width: 100, height: 100)
+            Text("Profile")
+                .padding(10)
+        }
+    }
+}
+
+struct ContentView: View {
+    var body: some View {
+        TabView{
+            HomeView().tabItem{
+                Label("Home", systemImage: "house")
+            }
+            NavigationSample().tabItem{
+                Label("Settings", systemImage: "gear")
+            }
+            ProfileView().tabItem{
+                Label("Profile", systemImage: "person.circle")
+            }
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
+
+
+
+//
+//  NavigationSample.swift
+//  SwiftUIDay03Ex01
+//
+//  Created by 윤태한 on 2/12/25.
+//
+
+import SwiftUI
+
+struct NavigationSample : View {
+    var body: some View {
+        NavigationView {
+            VStack{
+                Text("Hello, World!")
+                
+                NavigationLink(destination: DetailView()){
+                    Text("세부 화면으로 이동")
+                }.padding(.vertical)
+            }
+            
+        }.navigationTitle("메인 화면")
+        
+    }
+}
+
+struct DetailView: View {
+    var body: some View {
+        Text("여기는 세부 화면입니다.")
+    }
+}
+
+#Preview {
+    NavigationSample()
+}
