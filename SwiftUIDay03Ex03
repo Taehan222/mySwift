@@ -1,0 +1,114 @@
+//
+//  ActionSheetView.swift
+//  SwiftUIDay03Ex03
+//
+//  Created by 윤태한 on 2/12/25.
+//
+
+import SwiftUI
+
+struct ActionSheetView: View {
+    @State private var showActionSheet = false
+
+    var body: some View {
+        Button("Show ActionSheet") {
+            showActionSheet = true
+        }
+        .actionSheet(isPresented: $showActionSheet) {
+            ActionSheet(
+                title: Text("Select Option"),
+                buttons: [
+                    .default(Text("Option 1")),
+                    .destructive(Text("Delete")),
+                    .cancel()
+                ]
+            )
+        }
+    }
+}
+
+#Preview {
+    ActionSheetView()
+}
+
+
+//
+//  BindToggleEx.swift
+//  SwiftUIDay03Ex03
+//
+//  Created by 윤태한 on 2/12/25.
+//
+
+import SwiftUI
+
+struct ParentView2: View {
+    @State var isOn = false
+    var body: some View {
+        Text("isOn: \(isOn)")
+        ToggleView2(isOn: $isOn)
+    }
+}
+
+struct ToggleView2: View {
+    @Binding var isOn: Bool
+
+    var body: some View {
+        VStack {
+            Toggle("IsOn", isOn: $isOn)
+        }
+        .padding()
+    }
+}
+
+struct BindToggleEx: View {
+    var body: some View {
+        ParentView2()
+    }
+}
+
+#Preview {
+    BindToggleEx()
+}
+
+
+
+//
+//  ObservedObjectExView.swift
+//  SwiftUIDay03Ex03
+//
+//  Created by 윤태한 on 2/12/25.
+//
+
+import SwiftUI
+
+class CntClass: ObservableObject {
+    @Published var count: Int
+
+    init(count: Int = 0){
+        self.count = count
+    }
+}
+
+struct ObservedObjectExView: View {
+    @ObservedObject var cntObj: CntClass = CntClass()
+
+    var body: some View {
+        VStack {
+            Text("ObservedObjectExView")
+                .font(.title)
+                .padding()
+            Text("Count: \(cntObj.count)")
+            Button("증가하기") {
+                print("증가하기 버튼 탭!")
+                cntObj.count += 1
+                print(cntObj.count)
+            }
+            .padding()
+        }
+
+    }
+}
+
+#Preview {
+    ObservedObjectExView()
+}
