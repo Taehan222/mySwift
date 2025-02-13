@@ -1,0 +1,89 @@
+//
+//  ContentView.swift
+//  SwiftUIDay04Ex02FileManager
+//
+//  Created by 윤태한 on 2/13/25.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    @State private var users: [User] = []
+
+    var body: some View {
+        Text("사용자 목록").font(.largeTitle)
+        VStack {
+            List(users, id: .id) { user in
+                VStack(alignment: .leading) {
+                    Text("이름: (user.name)")
+                    Text("나이: (user.age)")
+                }
+            }
+            Button("저장하기") {
+                saveSampleUsers()
+            }
+            Button("불러오기") {
+                loadSavedUsers()
+            }
+        }
+
+    }
+
+    func saveSampleUsers() {
+        let sampleUsers = [
+            User(id: UUID(), name: "김범준", age: 25),
+            User(id: UUID(), name: "장범준", age: 30),
+            User(id: UUID(), name: "홍길동", age: 32),
+            User(id: UUID(), name: "배철수", age: 45)
+        ]
+        FileManagerHelper.shared.saveUsers(sampleUsers)
+    }
+
+    func loadSavedUsers() {
+        users = FileManagerHelper.shared.loadUsers()
+    }
+}
+
+#Preview {
+    ContentView()
+}
+
+
+
+//
+//  FileManagerHelpler.swift
+//  SwiftUIDay04Ex02FileManager
+//
+//  Created by 윤태한 on 2/13/25.
+//
+
+import SwiftUI
+
+// VO, DTO 또는 JAVA에서는 Bean
+// 데이터를 담는 용도
+struct User: Codable {
+    var id: UUID
+    var name: String
+    var age: Int
+}
+
+// 데이터를 저장하고 불러오는 역할
+// 외부에서 데이터를 변경 해야 하기 때문에 참조형으로 선언
+class FileManagerHelper {
+    // 싱글톤: 이 클래스의 객체는 오직 하나뿐이다.
+    // 외부에서 접근할때.. FileManagerHelper.shared.맴버
+    static let shared = FileManagerHelper()
+    // 저장할 파일 이름
+    private let fileName = "users.json"
+    
+    // JSON 파일로 저장하기
+    func saveUsers(_ users: [User]) {
+        
+    }
+    
+    // JSON 문자열을 배열로 불러오기
+    func loadUsers() -> [User] {
+
+    }
+    
+}
